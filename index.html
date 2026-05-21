@@ -1,17 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9VH7BLE4X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-P9VH7BLE4X');
-</script>
-   <!-- Google tag (gtag.js) -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mike Wazowski</title>
@@ -20,50 +9,28 @@
 <style>
 
 /* ══════════════════════════════════════
-   THEME TOKENS
+   COLOUR PALETTE
+   Edit these values to restyle the site
 ══════════════════════════════════════ */
 :root {
-  --rose:        #c97b65;
-  --rose-hover:  #b56a55;
-  --plum:        #9b78bb;
-  --gold:        #b8935a;
-  --transition:  background 0.35s, color 0.35s, border-color 0.35s;
-}
-
-[data-theme="dark"] {
-  --bg:          #f0e6d3;
-  --bg2:         #14161f;
-  --bg3:         #191c28;
-  --bg4:         #1f2233;
-  --text:        #e8e4f0;
-  --text-mid:    #9991b8;
-  --text-dim:    #585278;
-  --border:      rgba(155,120,187,0.16);
-  --border-md:   rgba(201,123,101,0.28);
-  --nav-bg:      rgba(15,16,23,0.94);
-  --shadow:      0 4px 24px rgba(0,0,0,0.4);
-  --header-glow: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(155,120,187,0.14) 0%, transparent 65%),
-                 radial-gradient(ellipse 35% 35% at 85% 85%, rgba(201,123,101,0.08) 0%, transparent 65%);
-}
-
-[data-theme="light"] {
-  --bg:          #faf8f5;
-  --bg2:         #f3f0eb;
-  --bg3:         #edeae4;
-  --bg4:         #e5e1d9;
-  --text:        #0e0b1a;
-  --text-mid:    #3a3355;
-  --text-dim:    #6a6090;
-  --border:      rgba(80,60,120,0.18);
-  --border-md:   rgba(160,70,50,0.3);
-  --nav-bg:      rgba(250,248,245,0.94);
-  --shadow:      0 4px 24px rgba(0,0,0,0.08);
-  --header-glow: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(155,120,187,0.09) 0%, transparent 65%),
-                 radial-gradient(ellipse 35% 35% at 85% 85%, rgba(201,123,101,0.06) 0%, transparent 65%);
+  --bg:          #f5f0e8;   /* warm beige — main background      */
+  --bg2:         #ede8df;   /* slightly darker beige — top bar   */
+  --bg3:         #e8e2d8;   /* card backgrounds                  */
+  --bg4:         #e0d9ce;   /* card hover backgrounds            */
+  --text:        #1e1a2e;   /* near-black — main text            */
+  --text-mid:    #4a4468;   /* medium tone — subtitles           */
+  --text-dim:    #8a84a8;   /* muted — labels, captions          */
+  --rose:        #c97b65;   /* rose/terracotta — primary accent  */
+  --rose-hover:  #b56a55;   /* darker rose for hover             */
+  --plum:        #7a5c9a;   /* plum — secondary accent           */
+  --gold:        #b8935a;   /* gold — ornaments, eyebrows        */
+  --border:      rgba(100,80,140,0.15);   /* subtle border       */
+  --border-md:   rgba(180,90,70,0.28);    /* stronger border     */
+  --shadow:      0 4px 20px rgba(0,0,0,0.07);
 }
 
 /* ══════════════════════════════════════
-   BASE
+   RESET & BASE
 ══════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -71,28 +38,25 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.75;
   overflow-x: hidden;
-  transition: var(--transition);
 }
 
 /* ══════════════════════════════════════
-   TOP BAR (theme + language)
+   TOP BAR — language flags only
 ══════════════════════════════════════ */
 .top-bar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
-  padding: 12px 32px;
+  padding: 10px 32px;
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
-  transition: var(--transition);
 }
 
-/* Language flags */
 .lang-btn {
   background: none;
   border: 1px solid var(--border);
@@ -106,50 +70,14 @@ body {
   align-items: center;
 }
 
-.lang-btn svg {
-  border-radius: 2px;
-  display: block;
-}
+.lang-btn svg { border-radius: 2px; display: block; }
 
 .lang-btn:hover,
 .lang-btn.active {
   opacity: 1;
   border-color: var(--border-md);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
-.lang-divider {
-  width: 1px;
-  height: 20px;
-  background: var(--border);
-  margin: 0 4px;
-}
-
-/* Theme toggle */
-.theme-toggle {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 5px 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--text-mid);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-  margin-left: 4px;
-}
-
-.theme-toggle:hover {
-  border-color: var(--border-md);
-  color: var(--text);
-}
-
-.theme-icon { font-size: 14px; }
 
 /* ══════════════════════════════════════
    HEADER
@@ -157,17 +85,19 @@ body {
 header {
   position: relative;
   text-align: center;
-  padding: 88px 40px 72px;
+  padding: 80px 40px 68px;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
-  transition: var(--transition);
+  background: var(--bg);
 }
 
 header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--header-glow);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(122,92,154,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 35% at 85% 85%, rgba(201,123,101,0.06) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -179,7 +109,7 @@ header::before {
   text-transform: uppercase;
   color: var(--plum);
   margin-bottom: 18px;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 h1 {
@@ -209,7 +139,7 @@ h1 .first { color: var(--rose); }
   color: var(--gold);
   font-size: 16px;
   letter-spacing: 16px;
-  opacity: 0.45;
+  opacity: 0.5;
 }
 
 /* ══════════════════════════════════════
@@ -219,12 +149,11 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--nav-bg);
-  backdrop-filter: blur(14px);
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: center;
-  transition: var(--transition);
 }
 
 nav a {
@@ -254,7 +183,7 @@ nav a:hover { color: var(--text); }
 nav a:hover::after { left: 16%; right: 16%; }
 
 /* ══════════════════════════════════════
-   MAIN
+   MAIN CONTENT AREA
 ══════════════════════════════════════ */
 main {
   max-width: 860px;
@@ -263,7 +192,7 @@ main {
 }
 
 /* ══════════════════════════════════════
-   SECTIONS
+   SECTION SHARED STYLES
 ══════════════════════════════════════ */
 section {
   padding: 68px 0;
@@ -278,7 +207,7 @@ section {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 8px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 h2 {
@@ -289,13 +218,12 @@ h2 {
   color: var(--text);
   line-height: 1.15;
   margin-bottom: 32px;
-  letter-spacing: -0.01em;
 }
 
 h2 em { color: var(--rose); font-style: italic; }
 
 /* ══════════════════════════════════════
-   BIO
+   ABOUT — bio with left rule
 ══════════════════════════════════════ */
 .bio-inner {
   display: grid;
@@ -326,7 +254,7 @@ h2 em { color: var(--rose); font-style: italic; }
 .bio-text a:hover { border-color: var(--rose); }
 
 /* ══════════════════════════════════════
-   SOCIAL LINKS
+   SOCIAL LINK CARDS
 ══════════════════════════════════════ */
 .links-grid {
   display: grid;
@@ -372,7 +300,6 @@ h2 em { color: var(--rose); font-style: italic; }
 
 .link-platform {
   font-family: 'DM Mono', monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -392,7 +319,6 @@ h2 em { color: var(--rose); font-style: italic; }
 
 .link-cta {
   font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
   font-size: 11px;
   letter-spacing: 0.12em;
   color: var(--rose);
@@ -406,7 +332,7 @@ h2 em { color: var(--rose); font-style: italic; }
 .link-card:hover .link-cta { gap: 12px; }
 
 /* ══════════════════════════════════════
-   BLOG
+   BLOG POST LIST
 ══════════════════════════════════════ */
 .blog-list { display: flex; flex-direction: column; }
 
@@ -438,12 +364,11 @@ h2 em { color: var(--rose); font-style: italic; }
 
 .post-tag {
   font-family: 'DM Mono', monospace;
-  font-weight: 300;
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--plum);
-  border: 1px solid rgba(155,120,187,0.3);
+  border: 1px solid rgba(122,92,154,0.3);
   padding: 3px 10px;
   border-radius: 4px;
   white-space: nowrap;
@@ -456,7 +381,6 @@ h2 em { color: var(--rose); font-style: italic; }
   gap: 8px;
   margin-top: 24px;
   font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -468,13 +392,12 @@ h2 em { color: var(--rose); font-style: italic; }
 .blog-all-link:hover { color: var(--rose); gap: 14px; }
 
 /* ══════════════════════════════════════
-   HOBBIES
+   HOBBY CARDS
 ══════════════════════════════════════ */
 .hobby-intro {
   font-family: 'DM Serif Display', serif;
   font-style: italic;
   font-size: 18px;
-  font-weight: 400;
   color: var(--text-mid);
   margin-bottom: 36px;
   line-height: 1.65;
@@ -505,7 +428,6 @@ h2 em { color: var(--rose); font-style: italic; }
 
 .hobby-name {
   font-family: 'DM Mono', monospace;
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -530,7 +452,7 @@ footer {
   text-align: center;
   padding: 44px 24px;
   border-top: 1px solid var(--border);
-  transition: var(--transition);
+  background: var(--bg2);
 }
 
 .footer-name {
@@ -544,7 +466,6 @@ footer {
 
 .footer-sub {
   font-family: 'DM Mono', monospace;
-  font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -555,19 +476,19 @@ footer {
 .footer-sub span { color: var(--gold); }
 
 .footer-flags {
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  margin-top: 4px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .footer-flag-text {
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
-  vertical-align: middle;
 }
 
 /* ══════════════════════════════════════
@@ -575,7 +496,7 @@ footer {
 ══════════════════════════════════════ */
 @media (max-width: 600px) {
   .top-bar { padding: 10px 16px; }
-  header { padding: 60px 20px 52px; }
+  header { padding: 56px 20px 48px; }
   nav a { padding: 14px 16px; font-size: 10px; }
   main { padding: 0 18px 64px; }
   section { padding: 48px 0; }
@@ -583,11 +504,14 @@ footer {
   .hobbies-grid { grid-template-columns: 1fr 1fr; }
   .blog-post { grid-template-columns: 1fr; gap: 6px; }
 }
+
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
+<!-- ══════════════════════════════════════
+     TOP BAR — language flags
+══════════════════════════════════════ -->
 <div class="top-bar">
   <button class="lang-btn active" id="btn-en" onclick="setLang('en')" title="English" aria-label="Switch to English">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="28" height="14">
@@ -608,60 +532,85 @@ footer {
       <rect y="15" width="60" height="15" fill="#DC143C"/>
     </svg>
   </button>
-  <div class="lang-divider"></div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-    <span class="theme-icon" id="theme-icon">🌙</span>
-    <span id="theme-label">Dark</span>
-  </button>
 </div>
 
-<!-- HEADER -->
+
+<!-- ══════════════════════════════════════
+     HEADER — name & tagline
+══════════════════════════════════════ -->
 <header>
-  <p class="pre-name" data-en="Welcome to my corner of the internet · Data, creativity & everything in between" data-pl="Witaj w moim zakątku internetu · Dane, kreatywność i wszystko pomiędzy">Welcome to my corner of the internet · Data, creativity & everything in between</p>
+  <p class="pre-name"
+     data-en="Welcome to my corner of the internet · Data, creativity &amp; everything in between"
+     data-pl="Witaj w moim zakątku internetu · Dane, kreatywność i wszystko pomiędzy">
+    Welcome to my corner of the internet · Data, creativity &amp; everything in between
+  </p>
   <h1><span class="first">Mike</span> Wazowski</h1>
-  <p class="tagline" data-en="Data Enthusiast · Builder of Things · Digital Creator" data-pl="Entuzjastka danych · Twórca · Digital Creator">Data Enthusiast · Builder of Things · Digital Creator</p>
+  <p class="tagline"
+     data-en="Data Enthusiast · Builder of Things · Digital Creator"
+     data-pl="Entuzjasta danych · Twórca · Digital Creator">
+    Data Enthusiast · Builder of Things · Digital Creator
+  </p>
   <span class="divider-ornament">· · ·</span>
 </header>
 
-<!-- NAV -->
+
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
 <nav>
-  <a href="#about" data-en="About" data-pl="O mnie">About</a>
-  <a href="#links" data-en="Links" data-pl="Linki">Links</a>
-  <a href="#blog" data-en="Writing" data-pl="Artykuły">Writing</a>
+  <a href="#about"   data-en="About"   data-pl="O mnie">About</a>
+  <a href="#links"   data-en="Links"   data-pl="Linki">Links</a>
+  <a href="#blog"    data-en="Writing" data-pl="Artykuły">Writing</a>
   <a href="#hobbies" data-en="Hobbies" data-pl="Hobby">Hobbies</a>
+  <a href="blog.html" data-en="Blog" data-pl="Blog">Blog</a>
 </nav>
 
-<!-- MAIN -->
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
 <main>
 
-  <!-- ABOUT -->
+  <!-- ABOUT SECTION -->
   <section id="about">
     <p class="section-eyebrow" data-en="01 — Who I am" data-pl="01 — Kim jestem">01 — Who I am</p>
     <h2 data-en="A little bit about <em>me</em>" data-pl="Trochę <em>o mnie</em>">A little bit about <em>me</em></h2>
     <div class="bio-inner">
       <div class="bio-rule"></div>
-      <div class="bio-text" id="bio-text">
-        <!-- EN bio -->
+      <div class="bio-text">
+
+        <!-- English bio — edit your text here -->
         <div class="bio-en">
           <p>Hello! I'm Mike.</p>
-          <p>You'll find my tutorials and articles over at <a href="https://mgacha.github.io/AboutMe/blog" target="_blank" rel="noopener">wazzowski.com</a>, my projects on 
-             <a href="https://github.com/mikewwwazowski" target="_blank" rel="noopener">GitHub</a></p>
+          <p>You'll find my tutorials and articles over at
+            <a href="https://mgacha.github.io/AboutMe/blog" target="_blank" rel="noopener">wazzowski.com</a>,
+            my projects on
+            <a href="https://github.com/mikewwwazowski" target="_blank" rel="noopener">GitHub</a>.
+          </p>
         </div>
-        <!-- PL bio -->
+
+        <!-- Polish bio — edit your text here -->
         <div class="bio-pl" style="display:none">
-          <p>Cześć! Jestem Mike </p>
-          <p>Moje artykuły i tutoriale znajdziesz na <a href="https://mgacha.github.io/AboutMe/blog" target="_blank" rel="noopener">wazoowski.it</a>, projekty na <a href="https://github.com/mikewwwwazowski" target="_blank" rel="noopener">GitHub</a></p>
+          <p>Cześć! Jestem Mike.</p>
+          <p>Moje artykuły i tutoriale znajdziesz na
+            <a href="https://mgacha.github.io/AboutMe/blog" target="_blank" rel="noopener">wazoowski.it</a>,
+            projekty na
+            <a href="https://github.com/mikewwwwazowski" target="_blank" rel="noopener">GitHub</a>.
+          </p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SOCIAL LINKS -->
+
+  <!-- LINKS SECTION -->
   <section id="links">
     <p class="section-eyebrow" data-en="02 — Find me" data-pl="02 — Znajdź mnie">02 — Find me</p>
     <h2 data-en="Around the <em>web</em>" data-pl="W <em>sieci</em>">Around the <em>web</em></h2>
     <div class="links-grid">
 
+      <!-- Add or remove cards as needed -->
       <a href="https://www.linkedin.com/in/mike-wwwwazowski/" target="_blank" rel="noopener" class="link-card">
         <div>
           <span class="link-platform">LinkedIn</span>
@@ -697,12 +646,14 @@ footer {
     </div>
   </section>
 
-  <!-- BLOG POSTS -->
+
+  <!-- WRITING / BLOG POSTS SECTION -->
   <section id="blog">
     <p class="section-eyebrow" data-en="03 — Writing" data-pl="03 — Artykuły">03 — Writing</p>
     <h2 data-en="Selected <em>articles</em>" data-pl="Wybrane <em>artykuły</em>">Selected <em>articles</em></h2>
     <div class="blog-list">
 
+      <!-- Copy this block to add a new post -->
       <a href="https://wazooowski.com/blog/2020/10/t-mike/" target="_blank" rel="noopener" class="blog-post">
         <span class="post-title">Data Analogies</span>
         <span class="post-tag">SQL</span>
@@ -712,78 +663,91 @@ footer {
         <span class="post-title">Excel 365</span>
         <span class="post-tag">Excel</span>
       </a>
+
     </div>
 
-    <a href="https://mgacha.github.io/AboutMe/blog" target="_blank" rel="noopener" class="blog-all-link" data-en="Browse all articles →" data-pl="Zobacz wszystkie artykuły →">Browse all articles →</a>
+    <a href="https://mgacha.github.io/AboutMe/blog" class="blog-all-link"
+       data-en="Browse all articles →"
+       data-pl="Zobacz wszystkie artykuły →">Browse all articles →</a>
   </section>
 
-  <!-- HOBBIES -->
+
+  <!-- HOBBIES SECTION -->
   <section id="hobbies">
     <p class="section-eyebrow" data-en="04 — Beyond data" data-pl="04 — Poza danymi">04 — Beyond data</p>
     <h2 data-en="Things I love <em>doing</em>" data-pl="To co <em>kocham</em> robić">Things I love <em>doing</em></h2>
-    <p class="hobby-intro" data-en="Not everything needs a pivot table. Here's what fills my time when I'm decidedly off-duty." data-pl="Nie wszystko wymaga tabeli przestawnej. To co wypełnia mój czas, gdy jestem zdecydowanie poza pracą.">Not everything needs a pivot table. Here's what fills my time when I'm decidedly off-duty.</p>
+    <p class="hobby-intro"
+       data-en="Not everything needs a pivot table. Here's what fills my time when I'm off-duty."
+       data-pl="Nie wszystko wymaga tabeli przestawnej. To co wypełnia mój czas poza pracą.">
+      Not everything needs a pivot table. Here's what fills my time when I'm off-duty.
+    </p>
     <div class="hobbies-grid">
-     
+
+      <!-- Copy this block to add a new hobby -->
       <div class="hobby-card">
         <span class="hobby-emoji">✈️</span>
         <span class="hobby-name" data-en="Travels" data-pl="Podróże">Travels</span>
-        <p class="hobby-desc" data-en="..." data-pl="">..</p>
+        <p class="hobby-desc"
+           data-en="Always plotting the next destination."
+           data-pl="Zawsze planuję kolejny cel.">
+          Always plotting the next destination.
+        </p>
       </div>
-
-   
 
     </div>
   </section>
 
 </main>
 
-<!-- FOOTER -->
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
 <footer>
   <span class="footer-name">Mike Wazowski</span>
-  <p class="footer-sub">© 2025 &nbsp;·&nbsp; <span data-en="Made with Love and Coffee" data-pl="Zrobione z miłością i kawą"></span></p>
-  <p class="footer-flags">
-   </p>
+  <p class="footer-sub">© 2025 &nbsp;·&nbsp; <span>Made with Love and Coffee</span></p>
+  <div class="footer-flags">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="12" style="border-radius:2px">
+      <clipPath id="fa"><path d="M0 0v30h60V0z"/></clipPath>
+      <clipPath id="fb"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
+      <g clip-path="url(#fa)">
+        <path d="M0 0v30h60V0z" fill="#012169"/>
+        <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
+        <path d="M0 0l60 30m0-30L0 30" clip-path="url(#fb)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+      </g>
+    </svg>
+    <span class="footer-flag-text">United Kingdom</span>
+    &nbsp;·&nbsp;
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="12" style="border-radius:2px">
+      <rect width="60" height="15" fill="#fff"/>
+      <rect y="15" width="60" height="15" fill="#DC143C"/>
+    </svg>
+    <span class="footer-flag-text">Poland</span>
+  </div>
 </footer>
 
+
+<!-- ══════════════════════════════════════
+     LANGUAGE SWITCHER SCRIPT
+     No dark/light mode — language only
+══════════════════════════════════════ -->
 <script>
-// ── THEME ──
-function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
-  document.getElementById('theme-label').textContent = isDark ? 'Light' : 'Dark';
-  localStorage.setItem('theme', isDark ? 'light' : 'dark');
-}
-
-// Restore saved theme
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    document.getElementById('theme-icon').textContent = '☀️';
-    document.getElementById('theme-label').textContent = 'Light';
-  }
-})();
-
-// ── LANGUAGE ──
 let currentLang = 'en';
 
 function setLang(lang) {
   currentLang = lang;
 
-  // Toggle active button
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
 
-  // Update all elements with data-en / data-pl (except bio divs)
   document.querySelectorAll('[data-en]').forEach(el => {
     if (el.classList.contains('bio-en') || el.classList.contains('bio-pl')) return;
     const val = el.getAttribute('data-' + lang);
     if (val) el.innerHTML = val;
   });
 
-  // Bio blocks
   document.querySelector('.bio-en').style.display = lang === 'en' ? '' : 'none';
   document.querySelector('.bio-pl').style.display = lang === 'pl' ? '' : 'none';
 
@@ -791,7 +755,7 @@ function setLang(lang) {
   localStorage.setItem('lang', lang);
 }
 
-// Restore saved language
+// Restore saved language on page load
 (function() {
   const saved = localStorage.getItem('lang');
   if (saved === 'pl') setLang('pl');
