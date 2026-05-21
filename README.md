@@ -1,11 +1,11 @@
 # How I built my Portfolio Website in 3 evenings with a low budget
 
-This article explains, step by step, how a simple portfolio website can be created with very little money and without software developer experience. GitHub Pages can publish static files such as HTML and CSS, it looks for a main file like `index.html`, and publishing can take up to 10 minutes after changes are saved. [GitHub](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages). A custom domain can also be connected, but GitHub recommends adding the custom domain in repository settings before finishing the DNS setup with the domain provider.[YT](https://www.youtube.com/watch?v=VRgTYJyN9pg)
+This article explains, step by step, how a simple portfolio website can be created with very little money and without software development experience. GitHub Pages can publish static files such as HTML and CSS. It looks for a main file like `index.html`, and publishing can take up to 10 minutes after changes are saved. [GitHub](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages). A custom domain can also be connected, but GitHub recommends adding the custom domain in repository settings before finishing the DNS setup with the domain provider. [YouTube](https://www.youtube.com/watch?v=VRgTYJyN9pg)
 
 I built my website in:
 
 - simple HTML and CSS,
-- with help from AI prompts (Cloude),
+- with help from AI prompts (Claude),
 - hosted it for free using GitHub Pages,
 - connected my own domain from Namecheap,
 - added HTTPS,
@@ -158,7 +158,7 @@ Think of it like the decoration and styling.
 Before uploading anything online, the website can be tested directly from a folder on the desktop. Opening the `index.html` file in a browser makes it possible to view the site locally and check how it looks.
 ![Image](assets/images/OpenLocaly.png)
 
-This is a very beginner-friendly step because there is no pressure and no hosting needed yet. A file can be edited (in notepad or notepad++), saved, and refreshed in the browser again and again until the page looks right.
+This is a very beginner-friendly step because there is no pressure and no hosting needed yet. A file can be edited (in Notepad or Notepad++), saved, and refreshed in the browser again and again until the page looks right.
 ![Image](assets/images/OpenNotepad.png)
 
 This is also a practical way to learn. Small changes in the HTML file show how text and page structure work, while small changes in the CSS file show how style, color, spacing, and layout work.
@@ -211,7 +211,7 @@ After that, the site is deployed and becomes public. GitHub notes that publishin
 Now I have a GitHub portfolio page on my GitHub account. I can leave it as it is, or I can buy a domain and build it further.
 
 
-[YouTube - Create repo and Git Hub Page](https://youtu.be/uQbRW36oohc)
+[YouTube - Create repo and GitHub Page](https://youtu.be/uQbRW36oohc)
 
 
 ## Step 6: Buy a domain on [Namecheap](http://namecheap.com/)
@@ -230,7 +230,7 @@ Basic steps:
 2. Go to **Settings**.
 3. Open **Pages**.
 4. In **Custom domain**, enter the domain name.
-5. Click **Save**.[cite:4]
+5. Click **Save**.
 
 GitHub explains that when publishing from a branch, this action creates a `CNAME` file in the source branch, which helps connect the site to the domain. This was explained in the video [How To Connect Namecheap Domain To GitHub Pages (Step By Step)](https://www.youtube.com/watch?v=_RpIr6yKcZo)
 
@@ -238,16 +238,16 @@ GitHub explains that when publishing from a branch, this action creates a `CNAME
 
 After the custom domain is added to GitHub, the DNS records can be configured in Namecheap. GitHub explains that the setup depends on whether the root domain, such as `example.com` is being used, or a subdomain such as `www.example.com`.
 
-For an apex domain, GitHub recommends `A` records that point to these IP addresses:
+GitHub recommends `A` records that point to these IP addresses:
 [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
 
-Check this on the GitHub website [Configuring an apex domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)
+Check this on the GitHub website [Configuring domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)
 - `185.199.108.153`
 - `185.199.109.153`
 - `185.199.110.153`
 - `185.199.111.153`
 
-For the `www` version, GitHub recommends a `CNAME` record pointing to `USERNAME.github.io` or `ORGANIZATION.github.io`, without the repository name.[cite:4]
+For the `www` version, GitHub recommends a `CNAME` record pointing to `USERNAME.github.io` or `ORGANIZATION.github.io`, without the repository name.
 
 Example DNS setup:
 
@@ -257,10 +257,10 @@ Example DNS setup:
 | A Record | @ | 185.199.109.153  |
 | A Record | @ | 185.199.110.153  |
 | A Record | @ | 185.199.111.153  |
-| CNAME Record | www | yourusername.github.io [Configuring an apex domain and the www subdomain variant](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain-and-the-www-subdomain-variant) |
+| CNAME Record | www | yourusername.github.io [Configuring domain and the www subdomain variant](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain-and-the-www-subdomain-variant) |
 
 GitHub also notes that DNS changes may take up to 24 hours to propagate, and it recommends avoiding wildcard DNS records because of security risks.
-Alternatively chcek on [DNS Checker](https://dnschecker.org/)
+Alternatively, check on [DNS Checker](https://dnschecker.org/)
 
 ## Step 9: Add Google Analytics - if desired
 
@@ -289,7 +289,7 @@ Example position:
   <!-- Google tag goes here -->
 </head>
 ```
-[YT](https://youtu.be/mlCX7RfTJ9U)
+[YouTube - Edit code in GitHub Repository for Google Analytics](https://youtu.be/mlCX7RfTJ9U)
 
 ## What made this possible without developer skills
 
@@ -337,7 +337,7 @@ flowchart TD
 ```
 
 ## Useful links
-- [YouTube - Create repo and Git Hub Page](https://youtu.be/uQbRW36oohc)
+- [YouTube - Create repo and GitHub Page](https://youtu.be/uQbRW36oohc)
 - [GitHub Pages: Creating a site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 - [GitHub Pages: Configure publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - [GitHub Pages: Custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
